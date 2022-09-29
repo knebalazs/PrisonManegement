@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" side="LEFT" style="-fx-background-color: #4e586e; -fx-border-radius: 0;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="60.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+  <tabs>
+      <Tab style="-fx-background-color: #f78364;">
+        <content>
+          <AnchorPane prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <GridPane layoutX="-1.0" layoutY="81.0" prefHeight="513.0" prefWidth="865.0" AnchorPane.bottomAnchor="-31.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="81.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="156.0" minWidth="0.0" prefWidth="121.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="45.0" minHeight="45.0" prefHeight="45.0" valignment="CENTER" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="471.33333587646484" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ListView fx:id="PrisonerID_list" focusTraversable="false" prefHeight="473.0" prefWidth="49.0" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label contentDisplay="CENTER" prefHeight="35.0" prefWidth="25.0" text="ID" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="First Name" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Entrance Date" textFill="WHITE" GridPane.columnIndex="3">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Relase Date" textFill="WHITE" GridPane.columnIndex="4">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Last Name" textFill="WHITE" GridPane.columnIndex="2">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label text="Cell Number" textFill="WHITE" GridPane.columnIndex="5">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="18.0" prefWidth="70.0" text="Crime" textFill="WHITE" GridPane.columnIndex="6">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="PrisonerFN_list" focusTraversable="false" prefHeight="473.0" prefWidth="107.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <ListView fx:id="PrisonerRD_list" focusTraversable="false" prefHeight="498.0" prefWidth="108.0" GridPane.columnIndex="4" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <ListView fx:id="PrisonerED_list" focusTraversable="false" prefHeight="498.0" prefWidth="136.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <ListView fx:id="PrisonerLN_list" focusTraversable="false" prefHeight="498.0" prefWidth="91.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <ListView fx:id="PrisonerCN_list" focusTraversable="false" prefHeight="498.0" prefWidth="126.0" GridPane.columnIndex="5" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <ListView fx:id="PrisonerCrime_list" focusTraversable="false" prefHeight="500.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="17.0" layoutY="24.0" prefHeight="50.0" prefWidth="311.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="535.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="311.33331298828125" minWidth="10.0" prefWidth="251.66665649414062" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" prefHeight="46.0" prefWidth="304.0" text="Prisoners list" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="31.0" />
+                           </font>
+                           <GridPane.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+        </content>
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/prisoner_list_icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+      </Tab>
+    <Tab style="-fx-background-color: #f78364;">
+         <content>
+            <AnchorPane prefHeight="626.0" prefWidth="863.0">
+               <children>
+                  <GridPane layoutX="109.0" layoutY="168.0" prefHeight="314.0" prefWidth="645.0" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="166.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="PrisonerID" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </TextField>
+                        <TextField fx:id="Prisoner_FN" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </TextField>
+                        <TextField fx:id="Prisoner_LN" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </TextField>
+                        <DatePicker fx:id="EntranceDate" prefHeight="26.0" prefWidth="626.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <effect>
+                              <Blend />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </DatePicker>
+                        <DatePicker fx:id="ReleaseDate" prefHeight="26.0" prefWidth="707.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <effect>
+                              <Blend />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </DatePicker>
+                        <TextField fx:id="Cell_Number" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </TextField>
+                        <ChoiceBox fx:id="Crime" prefHeight="26.0" prefWidth="880.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <effect>
+                              <Blend />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ChoiceBox>
+                        <Label prefHeight="35.0" prefWidth="130.0" text="Prisoner ID" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Prisoner First Name" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Prisoner Last Name" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Entrance Data" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Release Date" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Cell Number" textFill="WHITE" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Crime" textFill="#fffafa" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="130.0" layoutY="527.0" prefHeight="80.0" prefWidth="603.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="131.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="addPrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#addPrisoner" style="-fx-background-color: #f78364;" text="Add">
+                           <font>
+                              <Font name="System Bold Italic" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="deletePrisoner" centerShape="false" mnemonicParsing="false" onAction="#deletePrisoner" style="-fx-background-color: #f78364;" text="Delete" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="21.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="26.0" text="Managing prisoners" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="System Bold Italic" size="44.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </content>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/prisoner_icon.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </graphic>
+    </Tab>
+  </tabs>
+</TabPane>
