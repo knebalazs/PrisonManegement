@@ -114,7 +114,21 @@ public class LoginController implements Initializable {
 
     @FXML
     void onRegister(ActionEvent event) throws IOException{
-        //TODO
+        try {
+            Image adminRegIcon = new Image("/icons/register_admin.png");
+            Stage regStage = new Stage();
+
+            FXMLLoader regFxmlLoader = new FXMLLoader(getClass().getResource("/fxml/REGISTER.fxml"));
+            Parent root = regFxmlLoader.load();
+            Scene scene = new Scene(root);
+            regStage.setTitle("Register new account");
+            regStage.getIcons().add(adminRegIcon);
+            regStage.setScene(scene);
+            regStage.show();
+
+        } catch (IOException e) {
+            System.out.println("cant find the fxml ");
+        }
     }
 
     private boolean isValidUsername(String username) throws IOException {

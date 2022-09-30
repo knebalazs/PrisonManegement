@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" side="LEFT" style="-fx-background-color: #4e586e; -fx-border-radius: 0;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="60.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+<TabPane focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" side="LEFT" style="-fx-background-color: #4e586e; -fx-border-radius: 0;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="60.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI">
   <tabs>
       <Tab style="-fx-background-color: #f78364;">
         <content>
