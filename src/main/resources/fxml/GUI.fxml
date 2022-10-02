@@ -250,5 +250,80 @@
             </ImageView>
          </graphic>
     </Tab>
+     <Tab style="-fx-background-color: #f78364;">
+        <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                 <GridPane layoutX="21.0" layoutY="567.0" prefHeight="65.0" prefWidth="382.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="460.0">
+                    <columnConstraints>
+                       <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="132.0" />
+                       <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="223.0" minWidth="0.0" prefWidth="223.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                       <Label prefHeight="35.0" prefWidth="120.0" text="Login status:" textFill="WHITE" GridPane.rowIndex="1">
+                          <font>
+                             <Font name="System Bold Italic" size="20.0" />
+                          </font>
+                       </Label>
+                       <Label fx:id="loginStatusLabel" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                          <font>
+                             <Font name="System Bold Italic" size="20.0" />
+                          </font>
+                       </Label>
+                       <Label text="Selected prison:" textFill="WHITE">
+                          <font>
+                             <Font name="System Bold Italic" size="20.0" />
+                          </font>
+                       </Label>
+                       <Label fx:id="selectedPrisonLabel" prefHeight="30.0" prefWidth="222.0" textFill="WHITE" GridPane.columnIndex="1">
+                          <font>
+                             <Font name="System Bold Italic" size="20.0" />
+                          </font>
+                       </Label>
+                    </children>
+                 </GridPane>
+                 <GridPane layoutX="383.0" layoutY="572.0" prefHeight="55.0" prefWidth="457.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="383.0" AnchorPane.rightAnchor="23.0">
+                    <columnConstraints>
+                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                       <Button fx:id="logOutButton" mnemonicParsing="false" onAction="#logOut" prefHeight="55.0" prefWidth="130.0" style="-fx-background-color: #f78364;" text="Log out" GridPane.columnIndex="2">
+                          <font>
+                             <Font name="System Bold Italic" size="15.0" />
+                          </font>
+                          <cursor>
+                             <Cursor fx:constant="HAND" />
+                          </cursor>
+                       </Button>
+                    </children>
+                 </GridPane>
+                 <Label alignment="CENTER" layoutX="363.0" layoutY="14.0" prefHeight="58.0" prefWidth="137.0" text="Options" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <font>
+                       <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                 </Label>
+              </children>
+           </AnchorPane>
+        </content>
+        <graphic>
+           <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../icons/options_icon.png" />
+              </image>
+              <cursor>
+                 <Cursor fx:constant="HAND" />
+              </cursor>
+           </ImageView>
+        </graphic>
+     </Tab>
   </tabs>
 </TabPane>
