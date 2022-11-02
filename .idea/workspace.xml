@@ -4,33 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/crimes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/passwords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/prisoners.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/prisons.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/data/users.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AppController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/LOGIN.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/list_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/login_hitory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/login_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/options_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/prison_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/prisoner_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/prisoner_list_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/register_admin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/warden_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/warden_list_icon.png" afterDir="false" />
+    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="prisoners can be added and deleted + logout feature">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Prisoner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/blueprint.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/crimes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/passwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/prisons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/users.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,12 +49,18 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/Intellij projects/PrisonManegement/src/data&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programming/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Resolution Scopes&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -73,8 +68,8 @@
       <recent name="D:\Programming\Intellij projects\PrisonManegement\src\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programming\Intellij projects\PrisonManegement\src\main\resources\fxml" />
       <recent name="D:\Programming\Intellij projects\PrisonManegement\src\main\resources\icons" />
+      <recent name="D:\Programming\Intellij projects\PrisonManegement\src\main\resources\fxml" />
     </key>
   </component>
   <component name="RunManager">
@@ -118,7 +113,85 @@
       <workItem from="1664470555273" duration="260000" />
       <workItem from="1664470851326" duration="1494000" />
       <workItem from="1664472502285" duration="34000" />
+      <workItem from="1664474984420" duration="6000" />
+      <workItem from="1664475304462" duration="27000" />
+      <workItem from="1664475511784" duration="4000" />
+      <workItem from="1664531747319" duration="237000" />
+      <workItem from="1664532019244" duration="216000" />
+      <workItem from="1664532303792" duration="28000" />
+      <workItem from="1664532348500" duration="176000" />
+      <workItem from="1664532571208" duration="654000" />
+      <workItem from="1664533259969" duration="1124000" />
+      <workItem from="1664535183184" duration="2451000" />
+      <workItem from="1664560544064" duration="2045000" />
+      <workItem from="1664562732904" duration="4242000" />
+      <workItem from="1664621977185" duration="109000" />
+      <workItem from="1664622212159" duration="94000" />
+      <workItem from="1664622411596" duration="819000" />
+      <workItem from="1664623313681" duration="81000" />
+      <workItem from="1664623552026" duration="1284000" />
+      <workItem from="1664624858146" duration="22000" />
+      <workItem from="1664624929554" duration="210000" />
+      <workItem from="1664625141856" duration="5000" />
+      <workItem from="1664625174821" duration="2580000" />
+      <workItem from="1664646543009" duration="342000" />
+      <workItem from="1664650857720" duration="644000" />
+      <workItem from="1664651688229" duration="3082000" />
+      <workItem from="1664704757416" duration="3328000" />
+      <workItem from="1664712703411" duration="52000" />
+      <workItem from="1664712803769" duration="862000" />
+      <workItem from="1664713668411" duration="1808000" />
+      <workItem from="1664716995620" duration="2748000" />
+      <workItem from="1665688914917" duration="749000" />
+      <workItem from="1665945510168" duration="1112000" />
+      <workItem from="1666786225736" duration="597000" />
+      <workItem from="1666884851683" duration="1907000" />
+      <workItem from="1666898059878" duration="778000" />
+      <workItem from="1666979936043" duration="74000" />
+      <workItem from="1666980052422" duration="1904000" />
+      <workItem from="1667239743435" duration="2852000" />
+      <workItem from="1667244032480" duration="1689000" />
+      <workItem from="1667246392905" duration="1222000" />
+      <workItem from="1667304420602" duration="13467000" />
+      <workItem from="1667402117888" duration="5949000" />
+      <workItem from="1667418312125" duration="2394000" />
     </task>
+    <task id="LOCAL-00001" summary="gitignore update">
+      <created>1664474339057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664474339057</updated>
+    </task>
+    <task id="LOCAL-00002" summary="gitignore update">
+      <created>1664474578948</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664474578948</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added registration feature + GUI for main app">
+      <created>1664568244798</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664568244798</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Working Prisoners List">
+      <created>1664627370367</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664627370367</updated>
+    </task>
+    <task id="LOCAL-00005" summary="prisoners can be added and deleted + logout feature">
+      <created>1664714860427</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664714860427</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,5 +207,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gitignore update" />
+    <MESSAGE value="Added registration feature + GUI for main app" />
+    <MESSAGE value="Working Prisoners List" />
+    <MESSAGE value="prisoners can be added and deleted + logout feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="prisoners can be added and deleted + logout feature" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

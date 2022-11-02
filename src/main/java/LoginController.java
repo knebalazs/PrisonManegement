@@ -1,12 +1,10 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,8 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 
 public class LoginController implements Initializable {
@@ -28,6 +24,8 @@ public class LoginController implements Initializable {
     public static String logInTime;
     public static String username;
     public static String password;
+
+    DAO database = new DAO();
 
     @FXML
     private ChoiceBox<String> prisonChoiceBox;
@@ -49,14 +47,17 @@ public class LoginController implements Initializable {
 
     Image icon = new Image("/icons/prison_icon.png");
 
+    public LoginController() throws SQLException {
+    }
+
 
     @FXML
-    void onLogin(ActionEvent event) throws IOException {
+    void onLogin() {
         username = usernameField.getText();
         password = passwordField.getText();
         logInTime=LocalDate.now()+" "+ LocalTime.now();
 
-        if (prisonChoiceBox.getValue()==null){
+        if (prisonChoiceBox.getValue() == null){
             Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
             alertwindow.setTitle("Warning");
             alertwindow.setContentText("Please choose a prison to continue");
@@ -113,7 +114,7 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void onRegister(ActionEvent event) throws IOException{
+    void onRegister() {
         try {
             Image adminRegIcon = new Image("/icons/register_admin.png");
             Stage regStage = new Stage();
@@ -131,62 +132,35 @@ public class LoginController implements Initializable {
         }
     }
 
-    private boolean isValidUsername(String username) throws IOException {
-        List<String> usernames = readFile("src/data/users.txt");
+
+    private boolean isValidUsername(String username) throws SQLException {
+        List<String> usernames = database.getRegisteredUsers();
         return usernames.stream().anyMatch(o -> o.equals(username));
     }
 
 
-    private String getPasswordByUserName(String username) throws IOException {
+    private Optional<String> getPasswordByUserName(String username) throws SQLException {
 
-        List<String> passwords = readFile("src/data/passwords.txt");
-        for (String line : passwords) {
-            String currentUser;
-            if (line.substring(line.indexOf(",") + 1).equals(username)){
-                return  line.substring(0, line.indexOf(","));
-            }
-        }
-        return null;
-    }
-
-    private boolean isValidAccount(String username, String password) throws IOException {
-
-        if (getPasswordByUserName(username).equals(password)) return true;
-
-        return false;
+        HashMap<String, String> passwords = database.getRegisteredPasswords();
+        return Optional.ofNullable(passwords.get(username));
     }
 
 
-    public List<String> readFile(String fileName) throws IOException {
-        BufferedReader in = null;
-        FileReader fr = null;
-        List<String> data = new ArrayList<String>();
+    private boolean isValidAccount(String username, String password) throws SQLException {
 
-        try {
-            fr = new FileReader(fileName);
-            in = new BufferedReader(fr);
-            String str;
-            while ((str = in.readLine()) != null) {
-                data.add(str);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            in.close();
-            fr.close();
-        }
-        return data;
+        return getPasswordByUserName(username).isPresent() && getPasswordByUserName(username).get().equals(password);
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<String> prisons;
         try {
-            prisons = readFile("src/data/prisons.txt");
-        } catch (IOException e) {
+            prisons = database.getPrisonNames();
+            prisonChoiceBox.getItems().addAll(prisons);
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        prisonChoiceBox.getItems().addAll(prisons);
 
     }
 }

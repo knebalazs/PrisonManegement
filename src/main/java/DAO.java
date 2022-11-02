@@ -1,0 +1,88 @@
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+
+public class DAO {
+    String url = "jdbc:mysql://localhost:3306/prisonmanagement";
+    String uname = "root";
+    String password = "&Szoftmod2022";
+    Connection conn = DriverManager.getConnection(url, uname, password);
+    Statement statement = conn.createStatement();
+
+    public DAO() throws SQLException {
+
+    }
+
+    public List<String> getPrisonNames() throws SQLException {
+        ResultSet result = statement.executeQuery("select * from prisons");
+        List<String> prisons = new ArrayList<>();
+
+        while (result.next()) {
+            prisons.add(result.getString(1));
+        }
+
+        return prisons;
+    }
+
+    public List<String> getRegisteredUsers() throws SQLException {
+        ResultSet result = statement.executeQuery("select * from users");
+        List<String> users = new ArrayList<>();
+
+        while (result.next()) {
+            users.add(result.getString(1));
+        }
+
+        return users;
+    }
+
+    public HashMap<String, String> getRegisteredPasswords() throws SQLException {
+        ResultSet result = statement.executeQuery("select * from passwords");
+        HashMap<String, String> passwords = new HashMap<String, String>();
+
+        while (result.next()) {
+            passwords.put(result.getString(2), result.getString(1));
+        }
+
+        return passwords;
+    }
+
+    public void registerNewUser(String username, String password) throws SQLException {
+        statement.executeUpdate("INSERT INTO users VALUES ('" + username + "')");
+        statement.executeUpdate("INSERT INTO passwords VALUES ('" + password + "','" + username + "')");
+    }
+
+    public List<String> getCrimes() throws SQLException {
+        ResultSet result = statement.executeQuery("select * from crimes");
+        List<String> crimes = new ArrayList<>();
+
+        while (result.next()) {
+            crimes.add(result.getString(1));
+        }
+
+        return crimes;
+    }
+
+
+    public  List<Prisoner> getPrisonerList() throws SQLException {
+        ResultSet result = statement.executeQuery("select * from prisoners");
+        List<Prisoner> prisonerList = new ArrayList<>();
+        while (result.next()) {
+            Prisoner currentPrisoner = new Prisoner();
+            currentPrisoner.setUniqueID(Integer.parseInt(result.getString(1)));
+            currentPrisoner.setFirstName(result.getString(2));
+            currentPrisoner.setLastName(result.getString(3));
+            currentPrisoner.setAge(Integer.parseInt(result.getString(4)));
+            currentPrisoner.setSex(result.getString(5));
+            currentPrisoner.setEntranceDate(LocalDate.parse(result.getString(6)));
+            currentPrisoner.setReleaseDate(LocalDate.parse(result.getString(7)));
+            currentPrisoner.setSecurityLevel(Integer.parseInt(result.getString(8)));
+            currentPrisoner.setCellNum(Integer.parseInt(result.getString(9)));
+            currentPrisoner.setCrimes(new String[]{result.getString(10)});
+            
+            prisonerList.add(currentPrisoner);
+        }
+        return prisonerList;
+    }
+}

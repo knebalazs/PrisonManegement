@@ -1,5 +1,4 @@
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -7,16 +6,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-
-import java.io.IOException;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.List;
 
 public class RegisterController {
+
+    DAO database = new DAO();
 
     @FXML
     private Button cancelRegButton;
@@ -33,23 +28,20 @@ public class RegisterController {
     @FXML
     private TextField regUsername;
 
+    public RegisterController() throws SQLException {
+    }
+
 
     @FXML
-    void regSave(javafx.event.ActionEvent event) throws IOException {
+    void regSave() throws SQLException {
 
-        if (isUsernameAlredyRegistered(regUsername.getText())){
+        if (isUsernameAlreadyRegistered(regUsername.getText())){
             Alert alertwindow = new Alert(Alert.AlertType.WARNING);
             alertwindow.setTitle("Warning!");
             alertwindow.setContentText("Username already exists!");
             alertwindow.showAndWait();
-        }else if (regPassword.getText().equals(regPasswordAgain.getText()) && !isUsernameAlredyRegistered(regUsername.getText())){
-            BufferedWriter usersFile = new BufferedWriter(new FileWriter("src/data/users.txt", true));
-            usersFile.append(regUsername.getText() + "\n");
-            usersFile.close();
-
-            BufferedWriter passwordsFile = new BufferedWriter(new FileWriter("src/data/passwords.txt", true));
-            passwordsFile.append(regPassword.getText() + "," + regUsername.getText() + "\n");
-            passwordsFile.close();
+        }else if (regPassword.getText().equals(regPasswordAgain.getText()) && !isUsernameAlreadyRegistered(regUsername.getText())){
+            database.registerNewUser(regUsername.getText(), regPassword.getText());
 
             Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
             alertwindow.setTitle("Information");
@@ -78,30 +70,14 @@ public class RegisterController {
     }
 
     @FXML
-    void regCancel(javafx.event.ActionEvent event) {
+    void regCancel() {
         Stage stage = (Stage) cancelRegButton.getScene().getWindow();
         stage.close();
     }
 
 
-    boolean isUsernameAlredyRegistered(String username) throws IOException {
-        BufferedReader in = null;
-        FileReader fr = null;
-
-        try {
-            fr = new FileReader("src/data/users.txt");
-            in = new BufferedReader(fr);
-            String str;
-            while ((str = in.readLine()) != null) {
-                if(str.equals(username))
-                    return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            in.close();
-            fr.close();
-        }
-        return false;
+    boolean isUsernameAlreadyRegistered(String username) throws SQLException {
+        List<String> usernames = database.getRegisteredUsers();
+        return usernames.stream().anyMatch(o -> o.equals(username));
     }
 }

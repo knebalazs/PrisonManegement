@@ -254,6 +254,100 @@
         <content>
            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
+                 <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" prefHeight="58.0" prefWidth="833.0" text="Cell layout" textFill="WHITE">
+                    <font>
+                       <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                 </Label>
+                  <ImageView fitHeight="540.0" fitWidth="769.0" layoutX="45.0" layoutY="72.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../icons/blueprint.png" />
+                     </image>
+                  </ImageView>
+                  <GridPane gridLinesVisible="true" layoutX="135.0" layoutY="84.0" prefHeight="203.0" prefWidth="88.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="108.0" minHeight="3.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+                  <GridPane gridLinesVisible="true" layoutX="284.0" layoutY="89.0" prefHeight="161.0" prefWidth="91.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="79.0" minHeight="7.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="108.0" minHeight="3.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane gridLinesVisible="true" layoutX="134.0" layoutY="399.0" prefHeight="196.0" prefWidth="90.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="70.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="108.0" minHeight="3.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane gridLinesVisible="true" layoutX="287.0" layoutY="432.0" prefHeight="162.0" prefWidth="85.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="79.0" minHeight="7.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="108.0" minHeight="3.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane gridLinesVisible="true" layoutX="469.0" layoutY="249.0" prefHeight="66.0" prefWidth="318.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="110.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.0" minWidth="10.0" prefWidth="102.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane gridLinesVisible="true" layoutX="468.0" layoutY="364.0" prefHeight="67.0" prefWidth="322.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="109.0" minWidth="10.0" prefWidth="107.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="108.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="104.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+              </children>
+           </AnchorPane>
+        </content>
+        <graphic>
+           <ImageView fitHeight="32.0" fitWidth="32.0" opacity="0.63" pickOnBounds="true" preserveRatio="true">
+              <image>
+                 <Image url="@../icons/prison_icon.png" />
+              </image>
+              <cursor>
+                 <Cursor fx:constant="HAND" />
+              </cursor>
+           </ImageView>
+        </graphic>
+     </Tab>
+     <Tab style="-fx-background-color: #f78364;">
+        <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
                  <GridPane layoutX="21.0" layoutY="567.0" prefHeight="65.0" prefWidth="382.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="460.0">
                     <columnConstraints>
                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="222.0" minWidth="10.0" prefWidth="132.0" />

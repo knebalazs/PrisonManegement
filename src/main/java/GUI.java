@@ -9,12 +9,16 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class GUI implements Initializable {
 
+    DAO database = new DAO();
     private String selectedPrison;
     private String currentUser;
 
@@ -62,10 +66,12 @@ public class GUI implements Initializable {
     private final List<String> crimelist = new ArrayList<>();
     private final List<Integer> celnum = new ArrayList<>();
 
+    public GUI() throws SQLException {
+    }
 
 
     @FXML
-    void addPrisoner() throws IOException {
+    void addPrisoner() throws IOException, SQLException {
         int Id = Integer.parseInt(PrisonerID.getText());
         String fName = Prisoner_FN.getText();
         String lName = Prisoner_LN.getText();
@@ -87,7 +93,7 @@ public class GUI implements Initializable {
 
     }
     @FXML
-    void deletePrisoner() throws IOException {
+    void deletePrisoner() throws IOException, SQLException {
         boolean prisonerWasFound = false;
         int Id = Integer.parseInt(PrisonerID.getText());
         String fName = Prisoner_FN.getText();
@@ -161,17 +167,17 @@ public class GUI implements Initializable {
     }
 
 
-    private void fillListOfPrisoners() throws IOException {
-        List<String> prisoners = getListOfPrisonersWithSelectedPrison(selectedPrison);
-        for (String row:prisoners) {
-            String[] columns = row.split(",");
-            pids.add(Integer.parseInt(columns[1]));
-            fnlist.add(columns[2]);
-            lnlist.add(columns[3]);
-            edlist.add(columns[4]);
-            rdlist.add(columns[5]);
-            celnum.add(Integer.parseInt(columns[6]));
-            crimelist.add(columns[7]);
+    private void fillListOfPrisoners() throws SQLException {
+        //List<String> prisoners = getListOfPrisonersWithSelectedPrison(selectedPrison);
+        List<Prisoner> prisoners = database.getPrisonerList();
+        for (Prisoner p : prisoners) {
+            pids.add(p.getUniqueID());
+            fnlist.add(p.getFirstName());
+            lnlist.add(p.getLastName());
+            edlist.add(p.getEntranceDate().toString());
+            rdlist.add(p.getReleaseDate().toString());
+            celnum.add(p.getCellNum());
+            crimelist.add(Arrays.toString(p.getCrimes()));
         }
 
 
@@ -199,7 +205,7 @@ public class GUI implements Initializable {
         return data;
     }
 
-    public void refreshPrisonerList() throws IOException {
+    public void refreshPrisonerList() throws SQLException {
         pids.clear();
         fnlist.clear();
         lnlist.clear();
@@ -225,27 +231,6 @@ public class GUI implements Initializable {
         PrisonerCrime_list.getItems().addAll(crimelist);
     }
 
-    public void setCrimes() throws IOException {
-        BufferedReader in = null;
-        FileReader fr = null;
-        List<String> data = new ArrayList<String>();
-
-        try {
-            fr = new FileReader("src/data/crimes.txt");
-            in = new BufferedReader(fr);
-            String str;
-            while ((str = in.readLine()) != null) {
-                data.add(str);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            in.close();
-            fr.close();
-        }
-        Crime.getItems().addAll(data);
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -253,13 +238,11 @@ public class GUI implements Initializable {
         selectedPrison = LoginController.selectedPrison;
         loginStatusLabel.setText(currentUser);
         selectedPrisonLabel.setText(selectedPrison);
-
         try {
-            setCrimes();
+            Crime.getItems().addAll(database.getCrimes());
             refreshPrisonerList();
-        } catch (IOException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
