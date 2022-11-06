@@ -1,6 +1,7 @@
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.HashMap;
 
@@ -84,5 +85,9 @@ public class DAO {
             prisonerList.add(currentPrisoner);
         }
         return prisonerList;
+    }
+
+    public void  addNewPrisoner(int ID, String fName, String lName, int age, String sex, LocalDate entranceDate, LocalDate releaseDate, int secLevel, int cellNum, String crimes) throws SQLException {
+        statement.executeUpdate("INSERT INTO prisoners VALUE ('" + ID + "','" + fName  + "','" + lName + "','" + age + "','" + sex + "','" + entranceDate + "','" + releaseDate + "','" + secLevel + "','" + cellNum + "','" + crimes + "')");
     }
 }

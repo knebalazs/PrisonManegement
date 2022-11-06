@@ -28,6 +28,16 @@ public class GUI implements Initializable {
     private ListView<String> PrisonerLN_list;
     @FXML
     private ListView<String> PrisonerRD_list;
+
+    @FXML
+    private ListView<Integer> PrisonerAge_list;
+
+    @FXML
+    private ListView<String> PrisonerSex_list;
+
+    @FXML
+    private ListView<Integer> PrisonerSecurity_level;
+
     @FXML
     private ListView<String> PrisonerCrime_list;
     @FXML
@@ -43,10 +53,17 @@ public class GUI implements Initializable {
     private TextField Prisoner_FN;
     @FXML
     private TextField Prisoner_LN;
+
+    @FXML
+    private TextField Prisoner_Age;
+    @FXML
+    private TextField Prisoner_Sex;
     @FXML
     private DatePicker EntranceDate;
     @FXML
     private DatePicker ReleaseDate;
+    @FXML
+    private TextField SecurityLevel;
     @FXML
     private TextField Cell_Number;
     @FXML
@@ -61,28 +78,33 @@ public class GUI implements Initializable {
     private final List<Integer> pids = new ArrayList<>();
     private final List<String> fnlist = new ArrayList<>();
     private final List<String> lnlist = new ArrayList<>();
+    private final List<Integer> agelist = new ArrayList<>();
+    private final List<String> sexlist = new ArrayList<>();
     private final List<String> rdlist = new ArrayList<>();
     private final List<String> edlist = new ArrayList<>();
-    private final List<String> crimelist = new ArrayList<>();
+    private final List<Integer> securitylist = new ArrayList<>();
     private final List<Integer> celnum = new ArrayList<>();
+    private final List<String> crimelist = new ArrayList<>();
 
     public GUI() throws SQLException {
     }
 
 
     @FXML
-    void addPrisoner() throws IOException, SQLException {
-        int Id = Integer.parseInt(PrisonerID.getText());
+    void addPrisoner() throws SQLException {
+        int ID = pids.get(pids.size()-1)+1;
         String fName = Prisoner_FN.getText();
         String lName = Prisoner_LN.getText();
-        String entranceDate = String.valueOf(EntranceDate.getValue());
-        String releaseDate = String.valueOf(ReleaseDate.getValue());
-        String cellNumber = String.valueOf(Integer.parseInt(Cell_Number.getText()));
+        int age = Integer.parseInt(Prisoner_Age.getText());
+        String sex = Prisoner_Sex.getText();
+        LocalDate entranceDate = EntranceDate.getValue();
+        LocalDate releaseDate = ReleaseDate.getValue();
+        int securityLevel = Integer.parseInt(SecurityLevel.getText());
+        int cellNumber = Integer.parseInt(Cell_Number.getText());
         String crime = Crime.getValue();
 
-        BufferedWriter prisonerFile = new BufferedWriter(new FileWriter("src/data/prisoners.txt", true));
-        prisonerFile.append(selectedPrison + "," + Id + "," + fName + "," + lName + "," + entranceDate + "," + releaseDate  + "," + cellNumber + "," + crime + "\n");
-        prisonerFile.close();
+        database.addNewPrisoner(ID,fName,lName,age,sex,entranceDate,releaseDate,securityLevel,cellNumber,crime);
+
         refreshPrisonerList();
 
         Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
@@ -166,6 +188,21 @@ public class GUI implements Initializable {
 
     }
 
+    @FXML
+    private void findCell() throws IOException {
+        Image img = new Image("/icons/prison_icon.png");
+        Stage stage = new Stage();
+
+
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FIND_CELL.fxml"));
+        Scene scene = new Scene(loader.load());
+        stage.setTitle("Find Cell");
+        stage.getIcons().add(img);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 
     private void fillListOfPrisoners() throws SQLException {
         //List<String> prisoners = getListOfPrisonersWithSelectedPrison(selectedPrison);
@@ -174,8 +211,11 @@ public class GUI implements Initializable {
             pids.add(p.getUniqueID());
             fnlist.add(p.getFirstName());
             lnlist.add(p.getLastName());
+            agelist.add(p.getAge());
+            sexlist.add(p.getSex());
             edlist.add(p.getEntranceDate().toString());
             rdlist.add(p.getReleaseDate().toString());
+            securitylist.add(p.getSecurityLevel());
             celnum.add(p.getCellNum());
             crimelist.add(Arrays.toString(p.getCrimes()));
         }
@@ -220,6 +260,9 @@ public class GUI implements Initializable {
         PrisonerRD_list.getItems().clear();
         PrisonerCN_list.getItems().clear();
         PrisonerCrime_list.getItems().clear();
+        PrisonerAge_list.getItems().clear();
+        PrisonerSecurity_level.getItems().clear();
+        PrisonerSex_list.getItems().clear();
 
         fillListOfPrisoners();
         PrisonerID_list.getItems().addAll(pids);
@@ -229,6 +272,9 @@ public class GUI implements Initializable {
         PrisonerRD_list.getItems().addAll(rdlist);
         PrisonerCN_list.getItems().addAll(celnum);
         PrisonerCrime_list.getItems().addAll(crimelist);
+        PrisonerAge_list.getItems().addAll(agelist);
+        PrisonerSecurity_level.getItems().addAll(securitylist);
+        PrisonerSex_list.getItems().addAll(sexlist);
     }
 
 
