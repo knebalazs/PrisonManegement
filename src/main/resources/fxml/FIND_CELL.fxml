@@ -5,13 +5,119 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4e586e;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI">
-    <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" prefHeight="39.0" prefWidth="582.0" text="Cell layout" textFill="WHITE">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="943.0" style="-fx-background-color: #4e586e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CellManager">
+    <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="963.0" text="Cell layout" textFill="WHITE">
         <font>
             <Font name="System Bold Italic" size="36.0" />
         </font>
     </Label>
-    <ImageView fitHeight="297.0" fitWidth="515.0" layoutX="45.0" layoutY="72.0" pickOnBounds="true">
-        <Image url="@../icons/blueprint.png" />
-    </ImageView>
+   <AnchorPane fx:id="prison" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
+      <children>
+          <ImageView fitHeight="544.0" fitWidth="868.0" nodeOrientation="INHERIT" pickOnBounds="true">
+              <Image url="@../icons/blueprint.png" />
+          </ImageView>
+         <GridPane layoutX="100.0" layoutY="20.0" prefHeight="193.0" prefWidth="103.0">
+           <columnConstraints>
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints maxHeight="55.80000762939453" minHeight="9.999992370605469" prefHeight="36.8" vgrow="SOMETIMES" />
+             <RowConstraints maxHeight="88.60000762939453" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+             <RowConstraints maxHeight="111.00000762939453" minHeight="9.599992370605477" prefHeight="39.20000000000002" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="159.0" minHeight="6.799999999999997" prefHeight="40.79999999999998" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="175.60000000000002" minHeight="10.0" prefHeight="33.599999999999994" vgrow="SOMETIMES" />
+           </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+            </children>
+         </GridPane>
+         <GridPane layoutX="271.0" layoutY="14.0" prefHeight="168.0" prefWidth="103.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="55.80000762939453" minHeight="9.999992370605469" prefHeight="26.8" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="88.60000762939453" minHeight="0.0" prefHeight="20.399999999999995" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="111.00000762939453" minHeight="9.599992370605477" prefHeight="24.400000000000006" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="159.0" minHeight="6.799999999999997" prefHeight="24.60000000000001" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+            </children>
+         </GridPane>
+         <GridPane layoutX="99.0" layoutY="333.0" prefHeight="194.0" prefWidth="103.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="55.80000762939453" minHeight="9.999992370605469" prefHeight="27.2" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="88.60000762939453" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="111.00000762939453" minHeight="9.599992370605477" prefHeight="36.40000000000002" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="159.0" minHeight="6.799999999999997" prefHeight="44.19999999999999" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="175.60000000000002" minHeight="10.0" prefHeight="42.19999999999999" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+            </children>
+         </GridPane>
+         <GridPane layoutX="270.0" layoutY="360.0" prefHeight="168.0" prefWidth="103.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="55.80000762939453" minHeight="9.999992370605469" prefHeight="22.4" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="88.60000762939453" minHeight="0.0" prefHeight="18.6" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="111.00000762939453" minHeight="9.599992370605477" prefHeight="25.400000000000006" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="159.0" minHeight="6.799999999999997" prefHeight="24.60000000000001" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3" />
+            </children>
+         </GridPane>
+         <GridPane layoutX="478.0" layoutY="180.0" prefHeight="66.0" prefWidth="363.0">
+            <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.2" minWidth="10.0" prefWidth="117.8" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="121.79999999999998" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="121.40000000000003" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+            </children>
+         </GridPane>
+         <GridPane layoutX="479.0" layoutY="295.0" prefHeight="66.0" prefWidth="363.0">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.2" minWidth="10.0" prefWidth="120.2" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="123.80000000000003" />
+             <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.0" minWidth="10.0" prefWidth="119.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+            <children>
+               <Pane prefHeight="200.0" prefWidth="200.0" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+               <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+            </children>
+         </GridPane>
+      </children>
+   </AnchorPane>
 </Pane>

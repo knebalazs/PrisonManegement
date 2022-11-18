@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TabPane focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" side="LEFT" style="-fx-background-color: #4e586e; -fx-border-radius: 0;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="60.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI">
+<TabPane focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" side="LEFT" style="-fx-background-color: #4e586e; -fx-border-radius: 0;" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMaxWidth="200.0" tabMinHeight="40.0" tabMinWidth="60.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI">
   <tabs>
       <Tab style="-fx-background-color: #f78364;">
         <content>
@@ -145,11 +145,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <TextField fx:id="PrisonerID" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1">
-                           <effect>
-                              <Blend />
-                           </effect>
-                        </TextField>
                         <TextField fx:id="Prisoner_FN" prefHeight="26.0" prefWidth="291.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <effect>
                               <Blend />
@@ -176,7 +171,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </DatePicker>
-                        <ChoiceBox fx:id="Crime" prefHeight="26.0" prefWidth="880.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                        <ChoiceBox fx:id="Crime" prefHeight="26.0" prefWidth="227.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7">
                            <effect>
                               <Blend />
                            </effect>
@@ -209,12 +204,12 @@
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Cell Number" textFill="WHITE" GridPane.rowIndex="8">
+                        <Label text="Cell Number" textFill="WHITE" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Crime" textFill="#fffafa" GridPane.rowIndex="9">
+                        <Label text="Crime" textFill="#fffafa" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
@@ -229,13 +224,12 @@
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
-                        <Label text="Security Level" textFill="WHITE" GridPane.rowIndex="7">
+                        <Label text="Security Level" textFill="WHITE" GridPane.rowIndex="8">
                            <font>
                               <Font name="System Bold Italic" size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="Prisoner_Age" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="SecurityLevel" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                         <ChoiceBox prefHeight="26.0" prefWidth="353.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -244,7 +238,7 @@
                               <Blend />
                            </effect>
                         </ChoiceBox>
-                        <Button mnemonicParsing="false" onAction="#findCell" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #f78364;" text="Find Cell" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                        <Button mnemonicParsing="false" onAction="#findCell" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: #f78364;" text="Find Cell" GridPane.columnIndex="1" GridPane.rowIndex="9">
                            <font>
                               <Font name="System Bold Italic" size="15.0" />
                            </font>
@@ -252,6 +246,20 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
+                        <Label fx:id="securityLevel" text="Add Crimes First" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                           <font>
+                              <Font name="System Bold" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="PrisonerID" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold Italic" size="35.0" />
+                           </font>
+                        </Label>
+                        <Button onAction="#addCrime" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Add Crime" style="-fx-background-color: #f78364;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font></Button>
                      </children>
                   </GridPane>
                   <GridPane layoutX="130.0" layoutY="527.0" prefHeight="80.0" prefWidth="603.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="131.0">

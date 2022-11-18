@@ -1,12 +1,11 @@
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.HashMap;
 
 public class DAO {
-    String url = "jdbc:mysql://localhost:3306/prisonmanagement";
+    String url = "jdbc:mysql://localhost:3306/prison_management";
     String uname = "root";
     String password = "&Szoftmod2022";
     Connection conn = DriverManager.getConnection(url, uname, password);
@@ -89,5 +88,18 @@ public class DAO {
 
     public void  addNewPrisoner(int ID, String fName, String lName, int age, String sex, LocalDate entranceDate, LocalDate releaseDate, int secLevel, int cellNum, String crimes) throws SQLException {
         statement.executeUpdate("INSERT INTO prisoners VALUE ('" + ID + "','" + fName  + "','" + lName + "','" + age + "','" + sex + "','" + entranceDate + "','" + releaseDate + "','" + secLevel + "','" + cellNum + "','" + crimes + "')");
+    }
+
+    public int calculateSecurityLevel(List<String> crimes) throws SQLException {
+        int secLevel = 0;
+
+        for (String crime : crimes){
+            ResultSet result = statement.executeQuery("select security_level from crimes where crime_name = '" + crime + "'");
+            while (result.next())
+                if (result.getInt(1) > secLevel)
+                    secLevel = result.getInt(1);
+        }
+
+        return secLevel;
     }
 }

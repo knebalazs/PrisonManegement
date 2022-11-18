@@ -48,7 +48,7 @@ public class GUI implements Initializable {
     private ListView<Integer> PrisonerCN_list;
 
     @FXML
-    private TextField PrisonerID;
+    private Label PrisonerID;
     @FXML
     private TextField Prisoner_FN;
     @FXML
@@ -63,7 +63,7 @@ public class GUI implements Initializable {
     @FXML
     private DatePicker ReleaseDate;
     @FXML
-    private TextField SecurityLevel;
+    private Label securityLevel;
     @FXML
     private TextField Cell_Number;
     @FXML
@@ -85,6 +85,8 @@ public class GUI implements Initializable {
     private final List<Integer> securitylist = new ArrayList<>();
     private final List<Integer> celnum = new ArrayList<>();
     private final List<String> crimelist = new ArrayList<>();
+    private final List<String> prisonerCrimeList = new ArrayList<>();
+    private int prisonerSecurityLevel = 0;
 
     public GUI() throws SQLException {
     }
@@ -99,13 +101,14 @@ public class GUI implements Initializable {
         String sex = Prisoner_Sex.getText();
         LocalDate entranceDate = EntranceDate.getValue();
         LocalDate releaseDate = ReleaseDate.getValue();
-        int securityLevel = Integer.parseInt(SecurityLevel.getText());
         int cellNumber = Integer.parseInt(Cell_Number.getText());
         String crime = Crime.getValue();
 
-        database.addNewPrisoner(ID,fName,lName,age,sex,entranceDate,releaseDate,securityLevel,cellNumber,crime);
+        database.addNewPrisoner(ID,fName,lName,age,sex,entranceDate,releaseDate,prisonerSecurityLevel,cellNumber,crime);
 
         refreshPrisonerList();
+        prisonerSecurityLevel = 0;
+        prisonerCrimeList.clear();
 
         Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
         alertwindow.setTitle("Information");
@@ -190,17 +193,49 @@ public class GUI implements Initializable {
 
     @FXML
     private void findCell() throws IOException {
-        Image img = new Image("/icons/prison_icon.png");
-        Stage stage = new Stage();
 
+        if(prisonerSecurityLevel == 0){
+            Alert alertwindow = new Alert(Alert.AlertType.WARNING);
+            alertwindow.setTitle("Warning");
+            alertwindow.setContentText("Add crimes first!");
+            alertwindow.showAndWait();
+        }
+        else{
+            Image img = new Image("/icons/prison_icon.png");
+            Stage stage = new Stage();
 
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FIND_CELL.fxml"));
-        Scene scene = new Scene(loader.load());
-        stage.setTitle("Find Cell");
-        stage.getIcons().add(img);
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/FIND_CELL.fxml"));
+            Scene scene = new Scene(loader.load());
+            stage.setTitle("Find Cell");
+            stage.getIcons().add(img);
+            stage.setScene(scene);
+            stage.show();
+        }
 
+    }
+
+    @FXML
+    private void addCrime() throws SQLException {
+        String crime = Crime.getValue();
+        if (crime == null){
+            Alert alertwindow = new Alert(Alert.AlertType.WARNING);
+            alertwindow.setTitle("Warning");
+            alertwindow.setContentText("Choose a crime first!");
+            alertwindow.showAndWait();
+        } else if (prisonerCrimeList.contains(crime)) {
+            Alert alertwindow = new Alert(Alert.AlertType.WARNING);
+            alertwindow.setTitle("Warning");
+            alertwindow.setContentText("Crime already added!");
+            alertwindow.showAndWait();
+        } else {
+            prisonerCrimeList.add(crime);
+            prisonerSecurityLevel = database.calculateSecurityLevel(prisonerCrimeList);
+            securityLevel.setText(String.valueOf(prisonerSecurityLevel));
+            Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
+            alertwindow.setTitle("Information");
+            alertwindow.setContentText("Crime added!");
+            alertwindow.showAndWait();
+        }
     }
 
 
@@ -287,6 +322,8 @@ public class GUI implements Initializable {
         try {
             Crime.getItems().addAll(database.getCrimes());
             refreshPrisonerList();
+            int newPrisonerID = pids.get(pids.size() - 1) + 1;
+            PrisonerID.setText(String.valueOf(newPrisonerID));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

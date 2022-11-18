@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="database implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Cell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CellManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +44,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programming/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/programming/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -66,7 +70,7 @@
     <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainApp" />
       <module name="PrisonManegement" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\Programming\javafx\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\programming\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,6 +152,14 @@
       <workItem from="1667481110941" duration="6371000" />
       <workItem from="1667519957050" duration="32000" />
       <workItem from="1667519990806" duration="1856000" />
+      <workItem from="1668358846336" duration="8542000" />
+      <workItem from="1668610094332" duration="7772000" />
+      <workItem from="1668632275335" duration="3706000" />
+      <workItem from="1668636000030" duration="292000" />
+      <workItem from="1668636313446" duration="5341000" />
+      <workItem from="1668725701624" duration="247000" />
+      <workItem from="1668771215563" duration="4552000" />
+      <workItem from="1668775811880" duration="6097000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore update">
       <created>1664474339057</created>
@@ -215,6 +227,16 @@
     <MESSAGE value="prisoners can be added and deleted + logout feature" />
     <MESSAGE value="database implementation" />
     <option name="LAST_COMMIT_MESSAGE" value="database implementation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
