@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +10,7 @@ public class Cell {
     private int usedCapacity = 0;
 
     private final List<Prisoner> cellMembers = new ArrayList<>();
+    //private Color currentColor = Color.
 
 
 
@@ -24,12 +26,14 @@ public class Cell {
         return cellID;
     }
 
-    public int getFreeCapacity(){
-        return maxCapacity-usedCapacity;
-    }
+    public boolean isThereFreeSlot(){ return maxCapacity - usedCapacity > 0;}
 
     public int getCellSecurityLevel() {
         return cellMembers.stream().map(Prisoner::getSecurityLevel).max(Integer::compare).get();
+    }
+
+    public List<Prisoner> getCellMembers(){
+        return cellMembers;
     }
 
     public void setMaxCapacity(int maxCapacity) {

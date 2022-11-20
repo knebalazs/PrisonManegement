@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="database implementation">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CellManager.java" afterDir="false" />
+    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="improvements, cell select ui added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CellManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CellManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +156,9 @@
       <workItem from="1668636313446" duration="5341000" />
       <workItem from="1668725701624" duration="247000" />
       <workItem from="1668771215563" duration="4552000" />
-      <workItem from="1668775811880" duration="6097000" />
+      <workItem from="1668775811880" duration="6673000" />
+      <workItem from="1668898182071" duration="4619000" />
+      <workItem from="1668945561694" duration="10511000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore update">
       <created>1664474339057</created>
@@ -203,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667420915216</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="improvements, cell select ui added">
+      <created>1668782191369</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668782191369</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +232,8 @@
     <MESSAGE value="Working Prisoners List" />
     <MESSAGE value="prisoners can be added and deleted + logout feature" />
     <MESSAGE value="database implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="database implementation" />
+    <MESSAGE value="improvements, cell select ui added" />
+    <option name="LAST_COMMIT_MESSAGE" value="improvements, cell select ui added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

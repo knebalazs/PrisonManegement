@@ -57,7 +57,7 @@ public class GUI implements Initializable {
     @FXML
     private TextField Prisoner_Age;
     @FXML
-    private TextField Prisoner_Sex;
+    private ChoiceBox<String> Prisoner_Sex;
     @FXML
     private DatePicker EntranceDate;
     @FXML
@@ -86,7 +86,7 @@ public class GUI implements Initializable {
     private final List<Integer> celnum = new ArrayList<>();
     private final List<String> crimelist = new ArrayList<>();
     private final List<String> prisonerCrimeList = new ArrayList<>();
-    private int prisonerSecurityLevel = 0;
+    public static int prisonerSecurityLevel = 0;
 
     public GUI() throws SQLException {
     }
@@ -98,7 +98,7 @@ public class GUI implements Initializable {
         String fName = Prisoner_FN.getText();
         String lName = Prisoner_LN.getText();
         int age = Integer.parseInt(Prisoner_Age.getText());
-        String sex = Prisoner_Sex.getText();
+        String sex = Prisoner_Sex.getValue();
         LocalDate entranceDate = EntranceDate.getValue();
         LocalDate releaseDate = ReleaseDate.getValue();
         int cellNumber = Integer.parseInt(Cell_Number.getText());
@@ -320,7 +320,9 @@ public class GUI implements Initializable {
         loginStatusLabel.setText(currentUser);
         selectedPrisonLabel.setText(selectedPrison);
         try {
+            Prisoner_Sex.getItems().addAll("m", "f");
             Crime.getItems().addAll(database.getCrimes());
+
             refreshPrisonerList();
             int newPrisonerID = pids.get(pids.size() - 1) + 1;
             PrisonerID.setText(String.valueOf(newPrisonerID));

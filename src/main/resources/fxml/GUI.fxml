@@ -230,7 +230,7 @@
                            </font>
                         </Label>
                         <TextField fx:id="Prisoner_Age" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <ChoiceBox prefHeight="26.0" prefWidth="353.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <ChoiceBox fx:id="Prisoner_Sex" prefHeight="26.0" prefWidth="353.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -256,7 +256,7 @@
                               <Font name="System Bold Italic" size="35.0" />
                            </font>
                         </Label>
-                        <Button onAction="#addCrime" mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Add Crime" style="-fx-background-color: #f78364;" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+                        <Button mnemonicParsing="false" onAction="#addCrime" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #f78364;" text="Add Crime" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font></Button>
