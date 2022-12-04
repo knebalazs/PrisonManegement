@@ -90,6 +90,10 @@ public class DAO {
         statement.executeUpdate("INSERT INTO prisoners VALUE ('" + ID + "','" + fName  + "','" + lName + "','" + age + "','" + sex + "','" + entranceDate + "','" + releaseDate + "','" + secLevel + "','" + cellNum + "','" + crimes + "')");
     }
 
+    public void  removePrisoner(int ID) throws SQLException {
+        statement.executeUpdate("DELETE FROM prisoners WHERE id = " + ID);
+    }
+
     public int calculateSecurityLevel(List<String> crimes) throws SQLException {
         int secLevel = 0;
 

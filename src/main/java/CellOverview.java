@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -23,10 +24,10 @@ public class CellOverview implements Initializable {
 
     DAO database = new DAO();
     @FXML
-    private AnchorPane prison;
+    private AnchorPane overViewPrison;
 
     public static int selectedCellNumber ;
-    private Cell cell;
+    public static Cell cell;
     private List<Cell> cells = new ArrayList<>();
 
     public CellOverview() throws SQLException {
@@ -38,7 +39,6 @@ public class CellOverview implements Initializable {
         Object node = event.getSource();
         Button b = (Button) node;
         selectedCellNumber = Integer.parseInt(b.getText());
-        System.out.println(selectedCellNumber);
         cell = cells.get(selectedCellNumber-1);
         if (cell.getCellMembers().isEmpty()) {
             Alert alertwindow = new Alert(Alert.AlertType.WARNING);
@@ -55,27 +55,19 @@ public class CellOverview implements Initializable {
             stage.getIcons().add(img);
             stage.setScene(scene);
             stage.show();
+            Stage stage2 = (Stage) overViewPrison.getScene().getWindow();
+            stage2.close();
         }
 
     }
 
 
 
-    @FXML
-    private void transferPrisoner(){
-
-    }
-
-    @FXML
-    private void removePrisoner(){
-
-    }
-
     protected void addHoverEffect(){
         int cellCounter = 0;
         AtomicReference<String> originalStyle = new AtomicReference<>("-fx-background-color: rgba(128,128,128,0.5)");
-        for (int i = 1; i < prison.getChildren().size(); i++) {
-            GridPane currentblock = (GridPane) prison.getChildren().get(i);
+        for (int i = 1; i < overViewPrison.getChildren().size(); i++) {
+            GridPane currentblock = (GridPane) overViewPrison.getChildren().get(i);
             for (int j = 0; j < currentblock.getChildren().size(); j++){
                 Node currentCell = currentblock.getChildren().get(j);
                 cellCounter +=1;
@@ -90,8 +82,9 @@ public class CellOverview implements Initializable {
 
                 for (Cell c : cells){
                     if (c.getCellID() == cellCounter)
-                        if (!c.getCellMembers().isEmpty())
+                        if (!c.getCellMembers().isEmpty()) {
                             currentCell.setStyle("-fx-background-color: rgba(50,205,50,0.5)");
+                        }
 
                 }
             }

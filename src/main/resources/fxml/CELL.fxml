@@ -6,56 +6,72 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="943.0" style="-fx-background-color: #4e586e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CellOverview">
-    <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="963.0" text="Cell layout" textFill="WHITE">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="943.0" style="-fx-background-color: #4e586e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CellPrisonerManager">
+    <Label fx:id="cellNumberLabel" alignment="CENTER" layoutX="15.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="963.0" text="Cell n" textFill="WHITE">
         <font>
             <Font name="System Bold Italic" size="36.0" />
         </font>
     </Label>
-   <AnchorPane fx:id="prison" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
+   <AnchorPane fx:id="" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
       <children>
-          <ImageView fitHeight="346.0" fitWidth="728.0" layoutX="64.0" layoutY="61.0" nodeOrientation="INHERIT" pickOnBounds="true">
+          <ImageView fitHeight="501.0" fitWidth="537.0" layoutX="23.0" layoutY="24.0" nodeOrientation="INHERIT" pickOnBounds="true">
               <Image url="@../icons/cell.png" />
           </ImageView>
-         <Label alignment="CENTER" layoutX="160.0" layoutY="117.0" prefHeight="60.0" prefWidth="295.0" text="Prisoner 1">
+         <Label fx:id="prisoner1" alignment="CENTER" layoutX="100.0" layoutY="124.0" prefHeight="54.0" prefWidth="206.0" text="Prisoner 1">
             <font>
                <Font name="System Bold Italic" size="36.0" />
             </font>
          </Label>
-         <Label alignment="CENTER" layoutX="160.0" layoutY="295.0" prefHeight="60.0" prefWidth="295.0" text="Prisoner 2">
+         <Label fx:id="prisoner2" alignment="CENTER" layoutX="99.0" layoutY="374.0" prefHeight="68.0" prefWidth="206.0" text="Prisoner 2">
             <font>
                <Font name="System Bold Italic" size="36.0" />
             </font>
          </Label>
-         <GridPane layoutX="34.0" layoutY="440.0" prefHeight="111.0" prefWidth="758.0">
+         <GridPane layoutX="557.0" layoutY="20.0" prefHeight="531.0" prefWidth="310.0">
            <columnConstraints>
-             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            </columnConstraints>
            <rowConstraints>
-             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="397.4" minHeight="10.0" prefHeight="70.8" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="282.6000152587891" minHeight="10.0" prefHeight="125.19999999999997" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="282.6000152587891" minHeight="10.0" prefHeight="145.8" vgrow="SOMETIMES" />
+             <RowConstraints maxHeight="260.4" minHeight="10.0" prefHeight="160.19999999999993" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="260.4" minHeight="10.0" prefHeight="160.19999999999993" vgrow="SOMETIMES" />
            </rowConstraints>
             <children>
-                <Button fx:id="transferPrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#transferPrisoner" prefHeight="46.0" prefWidth="218.0" style="-fx-background-color: #f78364;" text="Transfer Prisoner" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                <Button fx:id="transferPrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#transferPrisoner" prefHeight="46.0" prefWidth="218.0" style="-fx-background-color: #f78364;" text="Transfer Prisoner" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                     <font>
                         <Font name="System Bold Italic" size="21.0" />
                     </font>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
-            
+
                 </Button>
-                <Button fx:id="removePrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#removePrisoner" prefHeight="46.0" prefWidth="209.0" style="-fx-background-color: #f78364;" text="Remove Prisoner" GridPane.columnIndex="2">
+                <Button fx:id="removePrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#removePrisoner" prefHeight="46.0" prefWidth="217.0" style="-fx-background-color: #f78364;" text="Remove Prisoner" GridPane.rowIndex="4">
                     <font>
                         <Font name="System Bold Italic" size="21.0" />
                     </font>
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
-      
+
                 </Button>
-               <ChoiceBox prefWidth="150.0" GridPane.halignment="CENTER" />
+                <Button fx:id="findNewCell" focusTraversable="false" mnemonicParsing="false" onAction="#findNewCell" prefHeight="46.0" prefWidth="220.0" style="-fx-background-color: #f78364;" text="Find New Cell" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+
+                </Button>
+               <ChoiceBox fx:id="prisonerInCellChoicebox" prefHeight="45.0" prefWidth="232.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+               <Label text="Select Prisoner" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold Italic" size="36.0" />
+                  </font>
+               </Label>
             </children>
          </GridPane>
       </children>

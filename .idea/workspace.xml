@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="improvements to cell select">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CellOverview.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL_OVERVIEW.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/v2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/cell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/prison.png" afterDir="false" />
+    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="cell Overview added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CellPrisonerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CellManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CellManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CellOverview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CellOverview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/CELL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/CELL_OVERVIEW.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL_OVERVIEW.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +175,9 @@
       <workItem from="1670069705729" duration="12000" />
       <workItem from="1670069780027" duration="4659000" />
       <workItem from="1670075393595" duration="8000" />
-      <workItem from="1670157123317" duration="4417000" />
+      <workItem from="1670157123317" duration="4595000" />
+      <workItem from="1670161727725" duration="6829000" />
+      <workItem from="1670168592110" duration="1469000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore update">
       <created>1664474339057</created>
@@ -238,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668958682334</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="cell Overview added">
+      <created>1670161639836</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670161639836</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +267,8 @@
     <MESSAGE value="database implementation" />
     <MESSAGE value="improvements, cell select ui added" />
     <MESSAGE value="improvements to cell select" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements to cell select" />
+    <MESSAGE value="cell Overview added" />
+    <option name="LAST_COMMIT_MESSAGE" value="cell Overview added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

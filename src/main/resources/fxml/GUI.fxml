@@ -313,9 +313,9 @@
             </ImageView>
          </graphic>
     </Tab>
-     <Tab style="-fx-background-color: #f78364;">
+     <Tab fx:id="cellLayoutTab" style="-fx-background-color: #f78364;">
         <content>
-           <fx:include fx:id="cellLayoutTab" source="CELL_OVERVIEW.fxml"/>
+           <fx:include  source="CELL_OVERVIEW.fxml"/>
         </content>
         <graphic>
            <ImageView fitHeight="32.0" fitWidth="32.0" opacity="0.63" pickOnBounds="true" preserveRatio="true">

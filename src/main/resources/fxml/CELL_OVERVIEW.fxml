@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="36.0" />
         </font>
     </Label>
-    <AnchorPane fx:id="prison" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
+    <AnchorPane fx:id="overViewPrison" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
         <children>
             <ImageView fitHeight="544.0" fitWidth="868.0" nodeOrientation="INHERIT" pickOnBounds="true">
                 <Image url="@../icons/prison.png" />
