@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="626.0" prefWidth="863.0" style="-fx-background-color: #4e586e" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea">
+    <children>
+        <GridPane layoutX="109.0" layoutY="168.0" prefHeight="314.0" prefWidth="645.0" AnchorPane.bottomAnchor="170.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="166.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="35.0" prefWidth="130.0" text="Prisoner ID" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Prisoner First Name" textFill="WHITE" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Prisoner Last Name" textFill="WHITE" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Entrance Data" textFill="WHITE" GridPane.rowIndex="5">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Release Date" textFill="WHITE" GridPane.rowIndex="6">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Cell Number" textFill="WHITE" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Crime" textFill="#fffafa" GridPane.rowIndex="7">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Age" textFill="WHITE" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Sex" textFill="WHITE" GridPane.rowIndex="4">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label text="Security Level" textFill="WHITE" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label fx:id="securityLevel" text="Add Crimes First" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                    <font>
+                        <Font name="System Bold" size="35.0" />
+                    </font>
+                </Label>
+                <Label fx:id="PrisonerFN" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold Italic" size="35.0" />
+                    </font>
+                </Label>
+                <Label fx:id="PrisonerLN" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold Italic" size="35.0" />
+                    </font>
+                </Label>
+                <Label fx:id="PrisonerID" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold Italic" size="35.0" />
+                    </font>
+                </Label>
+                <Label fx:id="cellLabel" prefHeight="51.0" prefWidth="227.0" text="Choose a Cell" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="System Bold Italic" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </GridPane>
+        <GridPane layoutX="130.0" layoutY="527.0" prefHeight="80.0" prefWidth="603.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="131.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Button fx:id="addPrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#addPrisoner" style="-fx-background-color: #f78364;" text="Add">
+                    <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="deletePrisoner" centerShape="false" mnemonicParsing="false" onAction="#deletePrisoner" style="-fx-background-color: #f78364;" text="Delete" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </GridPane>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="26.0" text="Cell n" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <font>
+                <Font name="System Bold Italic" size="44.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

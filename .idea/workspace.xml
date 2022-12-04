@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="improvements, cell select ui added">
+    <list default="true" id="4985cc42-c947-4ef8-b53d-055186ae6567" name="Changes" comment="improvements to cell select">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CellOverview.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/CELL_OVERVIEW.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/v2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/cell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/prison.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CellManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CellManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/FIND_CELL.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/GUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -42,7 +50,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/programming/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Balazs/Desktop/asd/PrisonManegement/src/main/resources/fxml&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -56,9 +64,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Balazs\Desktop\asd\PrisonManegement\src\main\resources\fxml" />
+      <recent name="C:\Users\Balazs\Desktop\asd\PrisonManegement\src\main\resources\icons" />
       <recent name="D:\Programming\Intellij projects\PrisonManegement\src\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Balazs\Desktop\asd\PrisonManegement\src\main\resources\icons" />
       <recent name="D:\Programming\Intellij projects\PrisonManegement\src\main\resources\fxml" />
       <recent name="D:\Programming\Intellij projects\PrisonManegement\src\main\resources\icons" />
     </key>
@@ -159,6 +170,17 @@
       <workItem from="1668775811880" duration="6673000" />
       <workItem from="1668898182071" duration="4619000" />
       <workItem from="1668945561694" duration="10511000" />
+      <workItem from="1668958589523" duration="2321000" />
+      <workItem from="1668968324747" duration="184000" />
+      <workItem from="1669061218101" duration="419000" />
+      <workItem from="1669061643891" duration="189000" />
+      <workItem from="1669578456798" duration="2266000" />
+      <workItem from="1669640993112" duration="5132000" />
+      <workItem from="1669733468390" duration="189000" />
+      <workItem from="1670069705729" duration="12000" />
+      <workItem from="1670069780027" duration="4659000" />
+      <workItem from="1670075393595" duration="8000" />
+      <workItem from="1670157123317" duration="4417000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore update">
       <created>1664474339057</created>
@@ -209,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668782191369</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="improvements to cell select">
+      <created>1668958682334</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668958682334</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +262,8 @@
     <MESSAGE value="prisoners can be added and deleted + logout feature" />
     <MESSAGE value="database implementation" />
     <MESSAGE value="improvements, cell select ui added" />
-    <option name="LAST_COMMIT_MESSAGE" value="improvements, cell select ui added" />
+    <MESSAGE value="improvements to cell select" />
+    <option name="LAST_COMMIT_MESSAGE" value="improvements to cell select" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

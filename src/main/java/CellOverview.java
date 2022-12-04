@@ -1,12 +1,16 @@
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,49 +18,60 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CellManager implements Initializable  {
+public class CellOverview implements Initializable {
+
 
     DAO database = new DAO();
-
     @FXML
     private AnchorPane prison;
+
     public static int selectedCellNumber ;
     private Cell cell;
-
     private List<Cell> cells = new ArrayList<>();
 
-    public CellManager() throws SQLException {
+    public CellOverview() throws SQLException {
     }
 
 
     @FXML
-    public void cellSelected(javafx.event.ActionEvent event){
+    private void openCell(javafx.event.ActionEvent event) throws IOException {
         Object node = event.getSource();
         Button b = (Button) node;
         selectedCellNumber = Integer.parseInt(b.getText());
         System.out.println(selectedCellNumber);
         cell = cells.get(selectedCellNumber-1);
-        if (cell.getCellMembers().isEmpty() || Math.abs(GUI.prisonerSecurityLevel - cell.getCellSecurityLevel()) <= 1 && cell.isThereFreeSlot()) {
-            Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
-            alertwindow.setTitle("Information");
-            alertwindow.setContentText("Cell selected successfully");
-            alertwindow.showAndWait();
-            //GUI.PrisonerID.setText(String.valueOf(selectedCellNumber));
-
-            Stage stage = (Stage) prison.getScene().getWindow();
-            stage.close();
-        } else {
+        if (cell.getCellMembers().isEmpty()) {
             Alert alertwindow = new Alert(Alert.AlertType.WARNING);
             alertwindow.setTitle("Warning");
-            alertwindow.setContentText("Cell is not selectable!");
+            alertwindow.setContentText("Empty Cell");
             alertwindow.showAndWait();
-        }
 
+        } else {
+            Image img = new Image("/icons/list_icon.png");
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/CELL.fxml"));
+            Scene scene = new Scene(loader.load());
+            stage.setTitle("Prisoners");
+            stage.getIcons().add(img);
+            stage.setScene(scene);
+            stage.show();
+        }
 
     }
 
 
-    private void addHoverEffect(){
+
+    @FXML
+    private void transferPrisoner(){
+
+    }
+
+    @FXML
+    private void removePrisoner(){
+
+    }
+
+    protected void addHoverEffect(){
         int cellCounter = 0;
         AtomicReference<String> originalStyle = new AtomicReference<>("-fx-background-color: rgba(128,128,128,0.5)");
         for (int i = 1; i < prison.getChildren().size(); i++) {
@@ -71,19 +86,13 @@ public class CellManager implements Initializable  {
                     }
                     else
                         currentCell.setStyle(originalStyle.get());
-                    });
+                });
 
                 for (Cell c : cells){
                     if (c.getCellID() == cellCounter)
-                        if (c.getCellMembers().isEmpty())
+                        if (!c.getCellMembers().isEmpty())
                             currentCell.setStyle("-fx-background-color: rgba(50,205,50,0.5)");
-                        else if(GUI.prisonerSecurityLevel == c.getCellSecurityLevel() && c.isThereFreeSlot()){
-                            currentCell.setStyle("-fx-background-color: rgba(0,100,0,0.5)");
-                        } else if (Math.abs(GUI.prisonerSecurityLevel - c.getCellSecurityLevel()) <= 1 && c.isThereFreeSlot()) {
-                            currentCell.setStyle("-fx-background-color: rgba(255,255,0,0.5)");
 
-                        } else
-                            currentCell.setStyle("-fx-background-color: rgba(255,0,0,0.5)");
                 }
             }
         }
@@ -103,8 +112,10 @@ public class CellManager implements Initializable  {
                 if (p.getCellNum() == i)
                     c.addPrisonerToCell(p);
             cells.add(c);
-            }
+        }
     }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -115,4 +126,5 @@ public class CellManager implements Initializable  {
             throw new RuntimeException(e);
         }
     }
+
 }

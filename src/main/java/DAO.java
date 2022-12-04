@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class DAO {
     String url = "jdbc:mysql://localhost:3306/prison_management";
     String uname = "root";
-    String password = "&Szoftmod2022";
+    String password = "Szoftmod2022";
     Connection conn = DriverManager.getConnection(url, uname, password);
     Statement statement = conn.createStatement();
 
@@ -101,5 +101,15 @@ public class DAO {
         }
 
         return secLevel;
+    }
+
+    public void addSelectedCellNum(int cellNum) throws SQLException {
+        statement.executeUpdate("INSERT INTO temp (cell_num) VALUE ('" + cellNum + "')");
+    }
+
+    public int getLastSelectedCellNum() throws SQLException {
+        ResultSet resultSet = statement.executeQuery(" select * from temp order by Id DESC LIMIT 1");
+        resultSet.next();
+        return resultSet.getInt(1);
     }
 }

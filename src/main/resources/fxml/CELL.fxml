@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="943.0" style="-fx-background-color: #4e586e;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CellOverview">
+    <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="963.0" text="Cell layout" textFill="WHITE">
+        <font>
+            <Font name="System Bold Italic" size="36.0" />
+        </font>
+    </Label>
+   <AnchorPane fx:id="prison" layoutX="34.0" layoutY="71.0" prefHeight="544.0" prefWidth="868.0">
+      <children>
+          <ImageView fitHeight="346.0" fitWidth="728.0" layoutX="64.0" layoutY="61.0" nodeOrientation="INHERIT" pickOnBounds="true">
+              <Image url="@../icons/cell.png" />
+          </ImageView>
+         <Label alignment="CENTER" layoutX="160.0" layoutY="117.0" prefHeight="60.0" prefWidth="295.0" text="Prisoner 1">
+            <font>
+               <Font name="System Bold Italic" size="36.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" layoutX="160.0" layoutY="295.0" prefHeight="60.0" prefWidth="295.0" text="Prisoner 2">
+            <font>
+               <Font name="System Bold Italic" size="36.0" />
+            </font>
+         </Label>
+         <GridPane layoutX="34.0" layoutY="440.0" prefHeight="111.0" prefWidth="758.0">
+           <columnConstraints>
+             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+            <children>
+                <Button fx:id="transferPrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#transferPrisoner" prefHeight="46.0" prefWidth="218.0" style="-fx-background-color: #f78364;" text="Transfer Prisoner" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                    <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+            
+                </Button>
+                <Button fx:id="removePrisoner" focusTraversable="false" mnemonicParsing="false" onAction="#removePrisoner" prefHeight="46.0" prefWidth="209.0" style="-fx-background-color: #f78364;" text="Remove Prisoner" GridPane.columnIndex="2">
+                    <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+      
+                </Button>
+               <ChoiceBox prefWidth="150.0" GridPane.halignment="CENTER" />
+            </children>
+         </GridPane>
+      </children>
+   </AnchorPane>
+</Pane>

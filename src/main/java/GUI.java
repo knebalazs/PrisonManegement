@@ -19,8 +19,6 @@ import java.util.ResourceBundle;
 public class GUI implements Initializable {
 
     DAO database = new DAO();
-    private String selectedPrison;
-    private String currentUser;
 
     @FXML
     private ListView<Integer> PrisonerID_list;
@@ -65,6 +63,8 @@ public class GUI implements Initializable {
     @FXML
     private Label securityLevel;
     @FXML
+    private Label cellLabel;
+    @FXML
     private TextField Cell_Number;
     @FXML
     private ChoiceBox<String> Crime;
@@ -101,12 +101,13 @@ public class GUI implements Initializable {
         String sex = Prisoner_Sex.getValue();
         LocalDate entranceDate = EntranceDate.getValue();
         LocalDate releaseDate = ReleaseDate.getValue();
-        int cellNumber = Integer.parseInt(Cell_Number.getText());
+        int cellNumber = CellManager.selectedCellNumber;
         String crime = Crime.getValue();
 
         database.addNewPrisoner(ID,fName,lName,age,sex,entranceDate,releaseDate,prisonerSecurityLevel,cellNumber,crime);
 
         refreshPrisonerList();
+        clearEntries();
         prisonerSecurityLevel = 0;
         prisonerCrimeList.clear();
 
@@ -117,59 +118,20 @@ public class GUI implements Initializable {
 
 
     }
-    @FXML
-    void deletePrisoner() throws IOException, SQLException {
-        boolean prisonerWasFound = false;
-        int Id = Integer.parseInt(PrisonerID.getText());
-        String fName = Prisoner_FN.getText();
-        String lName = Prisoner_LN.getText();
-        String entranceDate = String.valueOf(EntranceDate.getValue());
-        String releaseDate = String.valueOf(ReleaseDate.getValue());
-        String cellNumber = String.valueOf(Integer.parseInt(Cell_Number.getText()));
-        String crime = Crime.getValue();
-
-        File inputFile = new File("src/data/prisoners.txt");
-        File tempFile = new File("src/data/prisonersTemp.txt");
-
-        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        String lineToRemove = (selectedPrison + "," + Id + "," + fName + "," + lName + "," + entranceDate + "," + releaseDate  + "," + cellNumber + "," + crime);
-        String currentLine;
-
-        while((currentLine = reader.readLine()) != null) {
-            // trim newline when comparing with lineToRemove
-            String trimmedLine = currentLine.trim();
-            if(trimmedLine.equals(lineToRemove)){
-                prisonerWasFound = true;
-                continue;
-            }
-            writer.write(currentLine + System.getProperty("line.separator"));
-        }
-
-        if (prisonerWasFound){
-            Alert alertwindow = new Alert(Alert.AlertType.INFORMATION);
-            alertwindow.setTitle("Information");
-            alertwindow.setContentText("Prisoner deleted successfully");
-            alertwindow.showAndWait();
-        }
-        else{
-            Alert alertwindow = new Alert(Alert.AlertType.WARNING);
-            alertwindow.setTitle("Information");
-            alertwindow.setContentText("Prisoner was not found!");
-            alertwindow.showAndWait();
-        }
-        writer.close();
-        reader.close();
-        inputFile.delete();
-        boolean successful = tempFile.renameTo(inputFile);
-        refreshPrisonerList();
-        System.out.println(successful);
-
-    }
 
     @FXML
-    private void changePrison(){
+    private void clearEntries(){
+        PrisonerID.setText("");
+        Prisoner_FN.clear();
+        Prisoner_LN.clear();
+        Prisoner_Age.clear();
+        Prisoner_Sex.setValue(null);
+
+        EntranceDate.setValue(null);
+        ReleaseDate.setValue(null);
+        securityLevel.setText("Add Crimes First");
+        cellLabel.setText("Choose a Cell");
+        Crime.setValue("");
 
     }
 
@@ -210,6 +172,7 @@ public class GUI implements Initializable {
             stage.getIcons().add(img);
             stage.setScene(scene);
             stage.show();
+            cellLabel.setText("Cell Selected");
         }
 
     }
@@ -258,27 +221,6 @@ public class GUI implements Initializable {
 
     }
 
-    List<String> getListOfPrisonersWithSelectedPrison(String prison) throws IOException {
-        BufferedReader in = null;
-        FileReader fr = null;
-        List<String> data = new ArrayList<String>();
-
-        try {
-            fr = new FileReader("src/data/prisoners.txt");
-            in = new BufferedReader(fr);
-            String str;
-            while ((str = in.readLine()) != null) {
-                if(str.substring(0, str.indexOf(",")).equals(prison))
-                    data.add(str);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            in.close();
-            fr.close();
-        }
-        return data;
-    }
 
     public void refreshPrisonerList() throws SQLException {
         pids.clear();
@@ -288,6 +230,9 @@ public class GUI implements Initializable {
         rdlist.clear();
         celnum.clear();
         crimelist.clear();
+        sexlist.clear();
+        securitylist.clear();
+        agelist.clear();
         PrisonerID_list.getItems().clear();
         PrisonerFN_list.getItems().clear();
         PrisonerLN_list.getItems().clear();
@@ -300,6 +245,7 @@ public class GUI implements Initializable {
         PrisonerSex_list.getItems().clear();
 
         fillListOfPrisoners();
+
         PrisonerID_list.getItems().addAll(pids);
         PrisonerFN_list.getItems().addAll(fnlist);
         PrisonerLN_list.getItems().addAll(lnlist);
@@ -315,10 +261,12 @@ public class GUI implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        currentUser = LoginController.username;
-        selectedPrison = LoginController.selectedPrison;
+        String currentUser = LoginController.username;
+        String selectedPrison = LoginController.selectedPrison;
         loginStatusLabel.setText(currentUser);
         selectedPrisonLabel.setText(selectedPrison);
+        //if (CellManager.selectedCell != 0)
+          //  cellLabel.setText(String.valueOf(CellManager.selectedCell));
         try {
             Prisoner_Sex.getItems().addAll("m", "f");
             Crime.getItems().addAll(database.getCrimes());
